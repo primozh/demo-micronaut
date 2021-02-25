@@ -10,13 +10,14 @@ import javax.inject.Inject
 
 @MicronautTest
 class HelloControllerTest {
+
     @Inject
     @field:Client("/")
     lateinit var client : RxHttpClient
 
     @Test
     fun testHello() {
-        val request: HttpRequest<Any> = HttpRequest.GET("/hello")
+        val request: HttpRequest<Any> = HttpRequest.GET("/application-info")
         val body = client.toBlocking().retrieve(request)
         Assertions.assertNotNull(body)
         Assertions.assertEquals("Hello World", body)
