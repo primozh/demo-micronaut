@@ -6,15 +6,14 @@ import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.Produces
 import io.reactivex.Flowable
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
-@Controller("/")
-class HelloController {
+@Controller
+class HelloController @Inject constructor(val service: DemoService) {
 
     @Get("/application-info")
     @Produces(MediaType.TEXT_PLAIN)
-    fun index(): String {
-        return "Hello World"
-    }
+    fun index(): String = service.returnHi()
 
     @Get("/random")
     fun randomNumber(): Flowable<Int> =

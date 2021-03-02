@@ -28,8 +28,8 @@ class HelloClientSpec {
     lateinit var client: HelloClient
 
     @Test
-    fun testApplicationInfoResponse() {
-        assertEquals("Hello World", client.applicationInfo().blockingGet())
+    fun `test application-info response`() {
+        assertEquals("Hi!", client.applicationInfo().blockingGet())
     }
 
     @Test

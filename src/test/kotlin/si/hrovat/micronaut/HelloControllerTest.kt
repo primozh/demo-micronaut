@@ -20,6 +20,6 @@ class HelloControllerTest {
         val request: HttpRequest<Any> = HttpRequest.GET("/application-info")
         val body = client.toBlocking().retrieve(request)
         Assertions.assertNotNull(body)
-        Assertions.assertEquals("Hello World", body)
+        Assertions.assertEquals("Hi!", body)
     }
 }
